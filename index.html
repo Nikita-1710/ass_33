@@ -41,13 +41,89 @@
         margin: 20px 0;
         transition: background-color 0.3s;
     }
+
+    .modal {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        padding: 20px 30px;
+        border: 1px solid #888;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        position: relative;
+        
+    }
+
+    .login-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-input{
+        width: 250px;
+        margin: 10px;
+        font-size: 16px;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .close-btn{
+        position: absolute;
+        top: 10px;
+        right: 19px;
+        height: 20px;
+        cursor: pointer;
+    }
 </style>
 <body>
     <div class="container">
         <img src="./fb-logo.png" class="logo" alt="">
         <p>Facebook helps you to connect and share with the people in your life.</p>
-        <button class="login-btn">Log in</button>
+        <button class="login-btn" onclick="openDialogueBox()">Let 's Go</button>
     </div>
 
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <img src="./close.png" class="close-btn" onclick="closeDialogueBox()()">
+            <form class="login-form">
+                <h3>Login</h3>
+                <input 
+                    type="text"
+                    placeholder="Email address or phone number"
+                    class="form-input">
+                
+                <input 
+                    type="text"
+                    placeholder="Password"
+                    class="form-input">
+
+                <button class="login-btn" style="font-size: 16px; width: 280px;">Log in</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openDialogueBox() {
+            const modalElement = document.getElementById('modal');
+            modalElement.style.display = 'flex';
+        }
+
+        function closeDialogueBox() {
+            const modalElement = document.getElementById('modal');
+            modalElement.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
